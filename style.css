@@ -1,0 +1,10 @@
+ul > li {
+	display: none;
+	height: 500px;
+}
+ul > li.active{
+	display: block;
+}
+.btn_group{
+	padding: 10px;
+}

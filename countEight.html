@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+a자릿수에서 8의 갯수 구하는 방법
+
+</body>
+<script>
+var c;
+function countE(n) {
+  var eightCount = 0;
+  var singleSet = 0;
+  var b = 0;
+  c = 0;
+  if ( n <= 1 ){
+    alert("1보다 커야합니다.")
+  } else if ( n > 6 ){
+    alert("7보다 작아야합니다.")
+  }
+  else {   
+    //a자릿수 실숫자 = b   
+    var a = n;
+    singleSet = seed(a);
+    
+    seed_02(singleSet, n);
+    eightCount = seed_02;
+    console.log(eightCount);
+  }
+}
+
+function seed(a){
+  var a = 2;
+  b = Math.pow(10,a);
+  singleSet = (b/10) + (b/10 - 1);
+  return singleSet;
+}
+
+function seed_02(singleSet, n) {
+ for ( var i = 0; i < n - 2; i++){
+    a = n;
+    b = Math.pow(10, a);
+    c = singleSet * 10 + (b / 10 - 1);
+    singleSet = c;
+  }
+  return singleSet;
+}
+
+countE(3);
+
+</script>
+</html>
+

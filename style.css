@@ -5,6 +5,9 @@ ul > li {
 ul > li.active{
 	display: block;
 }
+ul > li.selected > img{
+	border: 2px solid red;
+}
 .btn_group{
 	padding: 10px;
 }

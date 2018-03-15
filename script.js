@@ -11,14 +11,18 @@ function plus(n){
 
 function movement(n){
 	var i;
+	// 마지막 슬라이드일 경우 다음버튼 클릭시 첫번째로 돌리기
 	if( n > x.length - 1 ){
 		showSlide = 0
 	}
+
+	// 첫 슬라이드일 경우 이전 클릭시 마지막으로 돌리기
 	if( n < 0 ){
 		showSlide = x.length - 1
 	}
+
 	for ( i = 0; i < x.length; i++ ){
-		x[i].className = " ";
+		x[i].classList.remove = "active";
 	}
 	x[showSlide].className = "active";
 }
@@ -42,41 +46,13 @@ function allVeiw(n) {
 	}
 }
 
-	wantPick = document.getElementsByClassName("image_list");
-function moreInfo() {
-	var wantPick;
-	console.log(wantPick.lastChild);
+// 선택하기
+function selectMy() {
+	var imageList = document.getElementsByClassName("image_list")[0];
+	var c = imageList.getElementsByClassName("active")[0];
+	
+	c.classList.add("selected");
 }
 
 
-
-
-// 참고용
-
-
-// var slideIndex = 1;
-// showSlides(slideIndex);
-
-// function plusSlides(n) {
-//   showSlides(slideIndex += n);
-// }
-
-// function currentSlide(n) {
-//   showSlides(slideIndex = n);
-// }
-
-// function showSlides(n) {
-//   var i;
-//   var slides = document.getElementsByClassName("mySlides");
-//   var dots = document.getElementsByClassName("dot");
-//   if (n > slides.length) {slideIndex = 1}    
-//   if (n < 1) {slideIndex = slides.length}
-//   for (i = 0; i < slides.length; i++) {
-//       slides[i].style.display = "none";  
-//   }
-//   for (i = 0; i < dots.length; i++) {
-//       dots[i].className = dots[i].className.replace(" active", "");
-//   }
-//   slides[slideIndex-1].style.display = "block";  
-//   dots[slideIndex-1].className += " active";
-// }
+console.log( )

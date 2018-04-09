@@ -8,12 +8,11 @@ a자릿수에서 8의 갯수 구하는 방법
 
 </body>
 <script>
-var c;
 function countE(n) {
   var eightCount = 0;
   var singleSet = 0;
   var b = 0;
-  c = 0;
+  var c = 0;
   if ( n <= 1 ){
     alert("1보다 커야합니다.")
   } else if ( n > 6 ){
@@ -25,7 +24,7 @@ function countE(n) {
     singleSet = seed(a);
     
     seed_02(singleSet, n);
-    eightCount = seed_02;
+    eightCount = seed_02();
     console.log(eightCount);
   }
 }

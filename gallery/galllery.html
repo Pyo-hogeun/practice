@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>이미지 갤러리</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<!-- 목표:
+	- 갤러리
+	- 갤러리 리스트 중에 선택 할 수 있다.
+	- 선택한 내용만 모아서 볼 수 있다.
+	- 선택한 내용을 취소 할 수 있다. 
+-->
+
+<ul class="car-list">
+	<li>
+		<img src="https://static.cargurus.com/images/site/2008/01/13/22/19/1992_hyundai_sonata_4_dr_gls_sedan-pic-15485-1600x1200.jpeg" /><button onclick="selectImg(event)">선택</button>
+	</li>
+	<li>
+		<img src="https://o.aolcdn.com/images/dims3/GLOB/legacy_thumbnail/800x450/format/jpg/quality/85/http://www.blogcdn.com/www.autoblog.com/media/2013/04/sonata-628.jpg" /><button onclick="selectImg(event)">선택</button>
+	</li>
+	<li>
+		<img src="https://cars.usnews.com/static/images/Auto/izmo/i6120138/2017_hyundai_sonata_angularfront.jpg" /><button onclick="selectImg(event)">선택</button>
+	</li>
+</ul>
+<ul class="listUp"></ul>
+
+<script src="./script.js"></script>
+</body>
+</html>

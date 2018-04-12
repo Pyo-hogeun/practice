@@ -3,6 +3,8 @@ function selectImg(event) {
 	var btn = event.target.previousSibling;
 	var btnSrc = btn.src;
 	// console.log("이미지 실제 주소 : " + btnSrc);
+	
+	// 이미 선택된 이미지가 있다면 중복해서 추가하지 않는다.
 	check(btnSrc);
 	
 }
@@ -12,10 +14,10 @@ function selectImg(event) {
 var selected = [];
 
 function selectDo(btnSrc){
-	// 이미 선택된 이미지가 있다면 중복해서 추가하지 않는다.
 	selected.push(btnSrc);
 }
 
+// 중복검사
 function check(btnSrc) {
 	console.log("중복체크",selected.indexOf(btnSrc));
 	if ( selected.indexOf(btnSrc) === -1 ) {
@@ -24,10 +26,8 @@ function check(btnSrc) {
 	} else {
 		console.log("이미 선택되었습니다.")
 	}
-
 }
 
-// 중복검사
 
 // fn 리스트에 넣기
 function listUp(btnSrc){
@@ -42,6 +42,7 @@ function listUp(btnSrc){
 	
 	addButton = document.createElement('button');
 	addButton.setAttribute('onclick','delList(this);');
+	addButton.setAttribute('class','btn');
 	addButton.innerHTML = '삭제';
 	addLi.appendChild(addImg);
 	addLi.appendChild(addButton);

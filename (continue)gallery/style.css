@@ -1,7 +1,10 @@
-.car-list li { position: relative; }
-.car-list li img{ width: 200px; }
+.car-list { margin-top: 10px; }
+.car-list li { position: relative; margin-bottom: 10px; width: 200px; }
+.car-list li img{ height: 100%; }
 .car-list li button {position: absolute;left: 10%;top: 70%;}
 
-.listUp{ display: block; position: fixed; bottom: 0; height: 300px; width: 100%; border: 1px solid green; }
+.listUp{ display: block; bottom: 0; height: 300px; width: 100%; border: 1px solid #efefef; border-radius: 10px; }
 .listUp li{ display: inline-block;}
 .listUp li img{ width: 150px;}
+
+.fix-bottom {  }

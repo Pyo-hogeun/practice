@@ -3,5 +3,6 @@
 .car-list li button {position: absolute;left: 10%;top: 70%;}
 
 .listUp{ display: block; position: fixed; bottom: 0; height: 300px; width: 100%; border: 1px solid green; }
-.listUp li{ display: inline-block;}
+.listUp li{ display: inline-block; position: relative;}
+.listUp li button{ position: absolute; left: 0; bottom: 0;}
 .listUp li img{ width: 150px;}

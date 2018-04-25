@@ -3,6 +3,10 @@
 <head>
 	<title>이미지 갤러리</title>
 	<meta charset="utf-8">
+	<!-- bootstrap -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<!-- custom -->
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
@@ -13,19 +17,30 @@
 	- 선택한 내용만 모아서 볼 수 있다.
 	- 선택한 내용을 취소 할 수 있다.
 -->
-
-<ul class="car-list">
-	<li>
-		<img src="https://static.cargurus.com/images/site/2008/01/13/22/19/1992_hyundai_sonata_4_dr_gls_sedan-pic-15485-1600x1200.jpeg" /><button onclick="selectImg(event)">선택</button>
-	</li>
-	<li>
-		<img src="https://o.aolcdn.com/images/dims3/GLOB/legacy_thumbnail/800x450/format/jpg/quality/85/http://www.blogcdn.com/www.autoblog.com/media/2013/04/sonata-628.jpg" /><button onclick="selectImg(event)">선택</button>
-	</li>
-	<li>
-		<img src="https://cars.usnews.com/static/images/Auto/izmo/i6120138/2017_hyundai_sonata_angularfront.jpg" /><button onclick="selectImg(event)">선택</button>
-	</li>
-</ul>
-<ul class="listUp"></ul>
+<h1>이미지를 선택하세요</h1>
+<div class="container">
+	<ul class="car-list">
+		<li class="row">
+			<div class="card">
+				<img class="card-img-top" src="https://static.cargurus.com/images/site/2008/01/13/22/19/1992_hyundai_sonata_4_dr_gls_sedan-pic-15485-1600x1200.jpeg" /><button class="btn" onclick="selectImg(event)">선택</button>
+			</div>
+		</li>
+		<li class="row">
+			<div class="card">
+				<img class="card-img-top" src="https://o.aolcdn.com/images/dims3/GLOB/legacy_thumbnail/800x450/format/jpg/quality/85/http://www.blogcdn.com/www.autoblog.com/media/2013/04/sonata-628.jpg" /><button class="btn" onclick="selectImg(event)">선택</button>
+			</div>
+		</li>
+		<li class="row">
+			<div class="card">
+				<img class="card-img-top" src="https://cars.usnews.com/static/images/Auto/izmo/i6120138/2017_hyundai_sonata_angularfront.jpg" /><button class="btn" onclick="selectImg(event)">선택</button>
+			</div>
+		</li>
+	</ul>
+</div>
+<div class="container fix-bottom">
+	<h2>선택된 이미지</h2>
+	<ul class="listUp"></ul>
+</div>
 
 <script src="./script.js"></script>
 </body>

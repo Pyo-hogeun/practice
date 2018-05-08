@@ -1,0 +1,4 @@
+li { list-style: none; }
+label[for="celphonenumber"] + ul{ display: inline-block; }
+label[for="celphonenumber"] + ul li{ display: inline-block; width: 120px; }
+label[for="celphonenumber"] + ul li input{ width: 100%; }

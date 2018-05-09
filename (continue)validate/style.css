@@ -1,4 +1,7 @@
 li { list-style: none; }
+input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{
+	-webkit-appearance: none;
+}
 label[for="celphonenumber"] + ul{ display: inline-block; }
 label[for="celphonenumber"] + ul li{ display: inline-block; width: 120px; }
 label[for="celphonenumber"] + ul li input{ width: 100%; }

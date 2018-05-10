@@ -13,22 +13,44 @@ var validate = {
 		}
 	},
 	empty: function(){
-		alert("empty");
+		console.log('빈칸이 있습니다. error:empty')
 	},
 	//휴대전화번호
 	celphoneNumber: function(){
 		var celphoneNumber = document.getElementsByName('celphonenumber');
+		var convertNum = function(val){
+			return Number(val);
+		}
+		var matchValue = function(cel, patt){
+			return cel.match(patt);
+		}
+		var cel01 = celphoneNumber[0].value;
+		var cel02 = celphoneNumber[1].value;
+		var cel03 = celphoneNumber[2].value;
 		// 첫번째
 		// 국번 010 ~ 019 까지
 		// 총 세자리
-		var cel01 = celphoneNumber[0].value;
 		var patt1 =  /01[0-9]/g;
-		var matchValue = cel01.match(patt1)
-		if( matchValue == null ){
-			console.log('휴대전화번호 국번이 잘못됐습니다.')
-		} else {
-			console.log('휴대전화번호 국번 통과')
+		//두번재
+		// 3~4자리
+		// 첫째자리는 '1'로 시작
+		var patt2 = /^[1-9][0-9][0-9][0-9]?/g;
+
+		// var matchValue = cel01.match(patt1)
+		if ( matchValue( cel01, patt1 ) == null ){
+			console.log('휴대전화번호 국번이 잘못됐습니다 error: null')
+		} else if ( convertNum(cel01 ) > 20 ){
+			console.log('휴대전화번호 국번이 잘못됐습니다.error: >20')
+		} else if ( matchValue(cel02, patt2 ) == null ){
+			console.log('휴대전화번호 가운데자리가 잘못됐습니다. error: < 1xx, 첫째자리')
+		} else if ( convertNum(cel02) > 9999 ){
+			console.log('휴대전화번호 가운데자리가 잘못됐습니다. error: > xxxx')
 		}
+		else {
+			console.log('휴대전화번호 통과')
+		}
+
+
 	},
 	alertPhrase: function(){
 		console.log('휴대전화번호 값이 잘못됐습니다.')

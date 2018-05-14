@@ -49,9 +49,26 @@ var validate = {
 		else {
 			console.log('휴대전화번호 통과')
 		}
-
-
+		
 	},
+	
+	valLengthTrigger: function(){
+		var celphoneNumber = document.getElementsByName('celphonenumber');
+		var valLength = {
+			valLength: function(obj){
+				valLength = obj.value;
+				if( valLength.length > obj.maxLength ){
+					valLength = valLength.slice(0, 3);
+					obj.value = valLength;
+				}
+			}
+
+		};
+		for ( i = 0; i < celphoneNumber.length; i++ ){
+			celphoneNumber[i].addEventListener("input", validate.valLengthTrigger.valLength());
+		};
+	},
+	
 	alertPhrase: function(){
 		console.log('휴대전화번호 값이 잘못됐습니다.')
 	}

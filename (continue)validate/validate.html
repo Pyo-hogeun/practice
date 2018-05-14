@@ -26,7 +26,7 @@
 	<li>
 		<label for="celphonenumber">전화번호</label>
 		<ul>
-			<li><input type="number" name="celphonenumber" max="3" /></li>
+			<li><input type="number" name="celphonenumber" maxlength="3" /></li>
 			<li><input type="number" name="celphonenumber" /></li>
 			<li><input type="number" name="celphonenumber" /></li>
 		</ul>
@@ -41,5 +41,8 @@
 
 <button type="submit" onclick="validate.validate();">저장</button>
 <script src="./script.js"></script>
+<script>
+	validate.valLengthTrigger();
+</script>
 </body>
 </html>

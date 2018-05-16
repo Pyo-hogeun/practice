@@ -14,6 +14,7 @@
 	유효값
 	- 이름은 한글만 입력가능
 	- 전화번호는 국번을 제외한 값이 7자리 이상이어야 한다.
+	- 전화번호의 각 input은 각각 3, 4, 4개 이상의 숫자는 입력할 수 없다.
 	- 접근성을 준수한다.
 
 -->
@@ -27,8 +28,8 @@
 		<label for="celphonenumber">전화번호</label>
 		<ul>
 			<li><input type="number" name="celphonenumber" maxlength="3" /></li>
-			<li><input type="number" name="celphonenumber" /></li>
-			<li><input type="number" name="celphonenumber" /></li>
+			<li><input type="number" name="celphonenumber" maxlength="4" /></li>
+			<li><input type="number" name="celphonenumber" maxlength="4" /></li>
 		</ul>
 	</li>
 	<li></li>
@@ -39,10 +40,10 @@
 
 
 
-<button type="submit" onclick="validate.validate();">저장</button>
+<button name="save" type="submit">저장</button>
 <script src="./script.js"></script>
 <script>
-	validate.valLengthTrigger();
+	validate.validate();
 </script>
 </body>
 </html>

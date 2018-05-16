@@ -1,10 +1,19 @@
 var validate = {
-	validate: function (){
-	var inputs = document.getElementsByTagName("input");
+	validate: function(){
+		document.getElementsByName('save')[0].addEventListener('click', validate.validateSub);
+		validate.valLengthTrigger();
+	},
+	validateSub: function (){
+		var inputs = document.getElementsByTagName("input");
+		var arr = [];
+		function emptySlut(emp) {
+			return emp = "";
+		}
 		for (var i = 0; i < inputs.length; i++) {
 			var a = inputs[i].value;
+			arr.push(a);
 		}
-		if( a == "" ){ // input 이 비어있다면 empty 알림
+		if( arr.some(emptySlut) == true ){ // input 이 비어있다면 empty 알림
 			validate.empty();
 		} else {
 			console.log("빈칸없음 통과");
@@ -53,20 +62,16 @@ var validate = {
 	},
 	
 	valLengthTrigger: function(){
-		var celphoneNumber = document.getElementsByName('celphonenumber');
-		var valLength = {
-			valLength: function(obj){
-				valLength = obj.value;
-				if( valLength.length > obj.maxLength ){
-					valLength = valLength.slice(0, 3);
-					obj.value = valLength;
-				}
+		var celphoneNums = document.getElementsByName('celphonenumber');
+		function slice3(){
+			if( this.value.length > this.maxLength ){
+				this.value = this.value.slice(0, this.maxLength);
 			}
+		}
+		for( i = 0; i < celphoneNums.length; i++ ){
+			celphoneNums[i].addEventListener('input', slice3);
+		}
 
-		};
-		for ( i = 0; i < celphoneNumber.length; i++ ){
-			celphoneNumber[i].addEventListener("input", validate.valLengthTrigger.valLength());
-		};
 	},
 	
 	alertPhrase: function(){

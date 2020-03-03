@@ -1,12 +1,12 @@
 import React from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
-import Counter from './components/Counter';
+import CounterContainer from './container/CounterContainer';
 
 function App() {
   return (
     <div className="App">
-      <Counter />
+      <CounterContainer />
     </div>
   );
 }

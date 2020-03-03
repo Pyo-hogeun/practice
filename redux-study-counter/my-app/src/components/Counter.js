@@ -1,10 +1,11 @@
 import React from 'react';
-const Counter = () => {
+const Counter = ({ value, onIncrement, onDecrement }) => {
     return (
         <div>
             <h1>myCounter</h1>
-            <button>+</button>
-            <button>-</button>
+            <h2>{value}</h2>
+            <button onClick={onIncrement}>+</button>
+            <button onClick={onDecrement}>-</button>
         </div>
     )
 }

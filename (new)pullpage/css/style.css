@@ -1,0 +1,19 @@
+html, body {
+	box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+h1 { margin:0; padding: 0; line-height: 1; color: pink; font-size: 40px; text-align: center; }
+.fr01 { height: 100%; }
+.fr02 { height: 100%; }
+.pullpage { 
+	width: 100%;
+	height: 100%;
+}
+.pullpage section { height: 100%; background-size: cover; }
+.pullpage section:nth-of-type(1){ background-color: green; background-image: url(https://images.pexels.com/photos/255379/pexels-photo-255379.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);}
+.pullpage section:nth-of-type(2){ background-color: blue; background-image: url(https://images.pexels.com/photos/531880/pexels-photo-531880.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);}
+.pullpage section:nth-of-type(3){ background-color: yellow; background-image: url(https://images.pexels.com/photos/552791/pexels-photo-552791.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);}
+.pullpage section:nth-of-type(4){ background-color: skyblue; background-image: url(https://images.pexels.com/photos/956999/milky-way-starry-sky-night-sky-star-956999.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260); }

@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Counter from '../components/Counter';
-import { increment, decrement } from '../store/modules/counter';
+import { increment, decrement, reset } from '../store/modules/counter';
+
+const mapStateToProps = ({ counter }) => ({
+    number: counter.number,
+});
+
+const mapDispatchToProps = {increment, decrement, reset};
 
 class CounterContainer extends Component {
     handleIncrement = () => {
@@ -9,6 +15,9 @@ class CounterContainer extends Component {
     };
     handleDecrement = () => {
         this.props.decrement();
+    };
+    handleReset = () => {
+        this.props.reset();
     };
 
     render(){
@@ -18,15 +27,12 @@ class CounterContainer extends Component {
                 value={number}
                 onIncrement={this.handleIncrement}
                 onDecrement={this.handleDecrement}
+                onReset={this.handleReset}
             />
         )
     }
 }
 
-const mapStateToProps = ({ counter }) => ({
-    number: counter.number,
-});
 
-const mapDispatchToProps = {increment, decrement};
 
 export default connect(mapStateToProps, mapDispatchToProps)(CounterContainer);

@@ -1,0 +1,34 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>갤러리</title>
+    <style>
+        .gallery li{width: 100px;}
+        .gallery li img{width: 100%;}
+    </style>
+</head>
+<body>
+    여기는 갤러리 입니다.
+    <ul class="gallery">
+    </ul>
+    <script>
+        var template = "";
+        var price = [];
+        $.ajax("/assets/price.json",{
+            method: "GET",
+            success: function(data){
+                console.log(data);
+                prices = data.prices;
+                for(var i = 0; i < prices.length; i++ ){
+                    template += `
+                        <li><img src="`+ prices[i].src +`"><span>`+prices[i].info+`</span>&nbsp;<span>`+prices[i].price+`</span></li>
+                    `
+                }
+                $('.gallery').append(template);
+            }
+        })
+    </script>
+</body>
+</html>

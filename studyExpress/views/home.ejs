@@ -1,0 +1,37 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>HOME</title>
+</head>
+<body>
+    여기는 홈
+    <ul>
+        <li><a href="/intro">소개페이지로 gogo</a></li>
+        <li><a href="/gallery">갤러리로 gogo</a></li>
+    </ul>
+    
+    
+
+    <h2> 여기는 리스트</h2>
+    <ul class="img-author">
+
+    </ul>
+
+    <script>
+        var template = "";
+        $.ajax("https://picsum.photos/v2/list",{
+            method: "GET",
+            success: function(data){
+                for(var i = 0; i < data.length; i++ ){
+                    console.log(data[i].author);
+                    template += `<li>`+data[i].author+`</li>`;
+                }
+                console.log(template);
+                $('.img-author').append(template);
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>여기는 소개페이지</title>
+    <style>
+        .intro-text{
+            padding: 20px;
+            color: #666;
+        }
+        .edit{display:none}
+    </style>
+</head>
+<body>
+    여기는 소개페이지입니다.
+    <div class="intro-text">
+        
+    </div>
+
+    <button onclick="edit();">편집</button>
+    <div class="edit">
+        <textarea name="" id="editedText" cols="30" rows="10"></textarea>
+        <button type="submit" id="saveEditIntro">저장</button>
+    </div>
+    <script>
+        let infoText = "";
+        const edit = () => {
+            $('.edit').show();
+            $('.edit textarea').val(infoText);//에디터에도 넣기
+        }
+        // 불러오기
+        // $.ajax("/assets/intro-text.txt",{
+        //     method: "GET",
+        //     success: function(data){
+        //         infoText = data;
+        //         $('.intro-text').append(infoText);//본문에 넣기
+        //     }
+        // })
+
+        // 편집 후 저장
+        $('#saveEditIntro').click(()=>{
+            var txt = $('#editedText').val();
+            $.ajax({
+                url: "/postEditIntro",
+                async: true,
+                type: 'POST',
+                data: {
+                    content: txt
+                },
+                dataType: 'text',
+                success: () => {
+                    alert("편집 성공");
+                },
+                error: (err) => {
+                    alert("실패");
+                    console.log(err);
+                }
+            })
+        });
+
+        
+    </script>
+</body>
+</html>

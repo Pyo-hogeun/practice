@@ -1,0 +1,9 @@
+{
+    "prices":[
+        {
+            "info" : "대출상품",
+            "src": "/assets/searchProducts.png",
+            "price": 5000
+        }
+    ]
+}

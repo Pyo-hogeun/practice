@@ -30,13 +30,13 @@
             $('.edit textarea').val(infoText);//에디터에도 넣기
         }
         // 불러오기
-        // $.ajax("/assets/intro-text.txt",{
-        //     method: "GET",
-        //     success: function(data){
-        //         infoText = data;
-        //         $('.intro-text').append(infoText);//본문에 넣기
-        //     }
-        // })
+        $.ajax("/assets/intro-text.txt",{
+            method: "GET",
+            success: function(data){
+                infoText = data;
+                $('.intro-text').append(infoText);//본문에 넣기
+            }
+        })
 
         // 편집 후 저장
         $('#saveEditIntro').click(()=>{
@@ -49,8 +49,15 @@
                     content: txt
                 },
                 dataType: 'text',
-                success: () => {
-                    alert("편집 성공");
+                success: (response) => {
+                    console.log(response);
+                    var data = JSON.parse(response);
+                    if( data.status == '200' ){
+                        //편집 성공 후 해당 페이지로 이동하려면 ajax에선
+                        // redirect는 안먹고 수동으로 구현해야한다.
+                        window.location.replace(data.redirect);
+                        console.log("편집성공~!");
+                    }
                 },
                 error: (err) => {
                     alert("실패");

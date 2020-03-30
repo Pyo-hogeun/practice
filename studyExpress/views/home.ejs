@@ -25,10 +25,10 @@
             method: "GET",
             success: function(data){
                 for(var i = 0; i < data.length; i++ ){
-                    console.log(data[i].author);
+                    // console.log(data[i].author);
                     template += `<li>`+data[i].author+`</li>`;
                 }
-                console.log(template);
+                // console.log(template);
                 $('.img-author').append(template);
             }
         })

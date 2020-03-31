@@ -21,7 +21,10 @@ app.get("/intro", (req, res, next) => {
 });
 app.get("/gallery", (req, res) => {
     console.log("갤러리로");
-    res.render("gallery",{});
+    res.render("gallery",{
+        galTitle: "갤러리타이틀이닷!",
+        galFooter: "갤러리 푸터닷!" 
+    });
 });
 app.post("/postEditIntro", (req, res) => {
     console.log(req.body.content);

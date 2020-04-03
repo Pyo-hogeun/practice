@@ -7,7 +7,10 @@ router.get('/', (req, res)=>{
     // if( !todos.length ) return res.status(404).send({ err: 'Todo not found'});
     // console.log(todos);
     // res.send(`find successfully: ${todos}`);
-    res.render('todoCreate',{todo:todos});
+    res.render('todoCreate',{
+      data:todos
+      
+    });
   })
   .catch(err => res.status(500).send(err));
 });
@@ -16,9 +19,12 @@ router.get('/', (req, res)=>{
 router.post('/', (req, res)=>{
   console.log(req.body);
   Todo.create(req.body)
-  .then(todo => res.send(todo))
+  .then((todo) => {
+    res.send(todo);
+  })
   .catch(err => res.status(500)
   .send(err));
+  
 });
 
 module.exports = router;

@@ -7,10 +7,21 @@
 </head>
 <body>
   <h1>TODO CREATE</h1>
-  <input type="text" id="todoAdd" value="ㅇㅇㅇ">
+  <h2>할일들</h2>
+  <ul class="todoList">
+    <li></li>
+    <li></li>
+  </ul>
+  <input type="text" id="todoAdd" value="">
   <button type="submit" id="saveTodoAdd">저장</button>
+  <% for( var i = 0; i < data.length; i++ ) { %>
+  <div><%= data[i].content %></div>
+  <% } %>
   <script>
     var todoItem;
+    var list = '';
+
+    // 저장하기
     $('#saveTodoAdd').click((e)=>{
       e.preventDefault();
       todoItem = document.querySelector('#todoAdd').value;
@@ -18,13 +29,14 @@
         url: '/todos',
         type: 'POST',
         data: {
-          todoid: 2,
+          todoid: 6,
           content: todoItem,
           completed: false
         },
         dataType: 'text',
         success: function(){
           console.log('저장성공!');
+          window.location.replace('/todos');
         }
       })
     })

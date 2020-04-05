@@ -1,0 +1,42 @@
+.board-topper{
+    text-align: right;
+}
+.board-list{
+    border-top: 4px solid $primary-sub-color;
+    color: $font-color;
+    .board-header{
+        display: flex;
+        width: 100%;
+        padding: 15px 0;
+        background-color: $primary-sub-color;
+        color: $third-color;
+        font-family: 'Do Hyeon', sans-serif;
+        >span{
+            flex: 0 0 15%;
+            font-size: 1.1em;
+            font-weight: 600;
+            padding: 5px;
+            text-align: center;
+            &:nth-of-type(2){
+                flex: 1 1 auto;
+            }
+        }
+    }
+    ul{
+        li{
+            a{
+                display: flex;
+                padding-top: 5px;
+                
+                >span{
+                    flex: 0 0 15%;
+                    padding: 5px;
+                    text-align: center;
+                    &:nth-of-type(2){
+                        flex: 1 1 auto;
+                    }
+                }
+            }
+        }
+    }
+}

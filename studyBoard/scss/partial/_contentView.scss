@@ -1,0 +1,21 @@
+.content{
+    .content-header{
+        background-color: $primary-sub-color;
+        padding: 20px;
+        color: $third-color;
+        h2{
+        }
+        dl{
+            dt{
+                font-size: 0;
+            }
+        }
+    }
+    .content-text{
+        padding: 20px;
+        min-height: 300px;
+        pre{
+            color: $font-color;
+        }
+    }
+}

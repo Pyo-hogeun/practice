@@ -1,0 +1,100 @@
+ul, ol, div, p, span, em, i, dl, dt, dd {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: unset;
+}
+
+body, pre {
+  font-family: "Nanum Gothic", sans-serif;
+}
+
+h1, h2, h3, h4, h5, a {
+  font-family: "Do Hyeon", sans-serif;
+}
+
+a:hover {
+  color: #F2CB05;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px;
+}
+.btn.primary {
+  background-color: #6F04D9;
+  color: #ffffff;
+}
+.btn.primary:hover {
+  color: #05F29B;
+}
+
+h1 {
+  text-align: center;
+  color: #8245BF;
+  margin-top: 20px;
+}
+
+.board-topper {
+  text-align: right;
+}
+
+.board-list {
+  border-top: 4px solid #8245BF;
+  color: #333333;
+}
+.board-list .board-header {
+  display: flex;
+  width: 100%;
+  padding: 15px 0;
+  background-color: #8245BF;
+  color: #05F29B;
+  font-family: "Do Hyeon", sans-serif;
+}
+.board-list .board-header > span {
+  flex: 0 0 15%;
+  font-size: 1.1em;
+  font-weight: 600;
+  padding: 5px;
+  text-align: center;
+}
+.board-list .board-header > span:nth-of-type(2) {
+  flex: 1 1 auto;
+}
+.board-list ul li a {
+  display: flex;
+  padding-top: 5px;
+}
+.board-list ul li a > span {
+  flex: 0 0 15%;
+  padding: 5px;
+  text-align: center;
+}
+.board-list ul li a > span:nth-of-type(2) {
+  flex: 1 1 auto;
+}
+
+.content .content-header {
+  background-color: #8245BF;
+  padding: 20px;
+  color: #05F29B;
+}
+.content .content-header dl dt {
+  font-size: 0;
+}
+.content .content-text {
+  padding: 20px;
+  min-height: 300px;
+}
+.content .content-text pre {
+  color: #333333;
+}
+
+/*# sourceMappingURL=style.css.map */

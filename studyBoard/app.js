@@ -24,7 +24,10 @@ app.get('/', (req, res)=>{
     res.render('list',{});
 });
 app.get('/list', (req, res)=>{
-    res.render('list',{});
+    Board.find(function(err, boards){
+        if(err) return res.json({result: 0});
+        res.render('list', boards);
+    })
 });
 app.get('/contentView', (req, res)=>{
     res.render('contentView', {});

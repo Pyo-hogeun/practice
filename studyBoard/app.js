@@ -26,7 +26,10 @@ app.get('/', (req, res)=>{
 app.get('/list', (req, res)=>{
     Board.find(function(err, boards){
         if(err) return res.json({result: 0});
-        res.render('list', boards);
+        console.log(boards[0]);
+        res.render('list', {
+            content: boards
+        });
     })
 });
 app.get('/contentView', (req, res)=>{
@@ -39,13 +42,14 @@ app.get('/contentUpdate', (req, res)=>{
     res.render('contentUpdate', {});
 });
 app.post('/create', (req, res)=>{
-    console.log(req.body.author);
+    // console.log(req.body.author);
     let board = new Board({
         contenttitle: req.body.title,
         contenttext: req.body.contentText,
         contentauthor: req.body.author,
+        contentdate: req.body.createdAt
     });
-    console.log(board);
+    // console.log(board);
     board.save(function(err){
         if(err) return res.json({result: 0});
         const status = {

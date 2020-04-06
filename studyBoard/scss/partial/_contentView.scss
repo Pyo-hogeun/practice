@@ -18,4 +18,24 @@
             color: $font-color;
         }
     }
+    .content-edit{
+        margin: 10px 0;
+        .content-info{
+            >li{
+                display: flex;
+                align-items: center;
+                margin: 10px 0;
+                label{
+                    flex: 0 0 100px;
+                }
+                input{
+                    flex: 1 1 auto;
+                }
+            }
+        }
+        textarea{
+            width: 100%;
+            padding: 10px;
+        }
+    }
 }

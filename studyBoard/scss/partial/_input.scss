@@ -1,0 +1,6 @@
+textarea, input[type="text"]{
+  @include input-style;
+}
+input[type="text"]{
+  padding: 10px;
+}

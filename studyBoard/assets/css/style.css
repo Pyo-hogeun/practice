@@ -12,11 +12,19 @@ a {
   color: unset;
 }
 
-body, pre {
+input, textarea, button, a {
+  outline: none;
+}
+
+textarea {
+  resize: none;
+}
+
+body, pre, textarea {
   font-family: "Nanum Gothic", sans-serif;
 }
 
-h1, h2, h3, h4, h5, a {
+h1, h2, h3, h4, h5, a, label {
   font-family: "Do Hyeon", sans-serif;
 }
 
@@ -34,6 +42,15 @@ a:hover {
 }
 .btn.primary:hover {
   color: #05F29B;
+}
+
+textarea, input[type=text] {
+  border: 1px solid #6F04D9;
+  border-width: 1px 0;
+}
+
+input[type=text] {
+  padding: 10px;
 }
 
 h1 {
@@ -95,6 +112,24 @@ h1 {
 }
 .content .content-text pre {
   color: #333333;
+}
+.content .content-edit {
+  margin: 10px 0;
+}
+.content .content-edit .content-info > li {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+.content .content-edit .content-info > li label {
+  flex: 0 0 100px;
+}
+.content .content-edit .content-info > li input {
+  flex: 1 1 auto;
+}
+.content .content-edit textarea {
+  width: 100%;
+  padding: 10px;
 }
 
 /*# sourceMappingURL=style.css.map */

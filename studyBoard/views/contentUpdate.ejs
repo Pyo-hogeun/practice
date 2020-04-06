@@ -1,0 +1,25 @@
+<html lang="ko">
+<%- include ('./head') %>
+<body>
+    <h1>글 수정</h1>
+    <div class="content">
+        <div class="content-edit">
+            <ul class="content-info">
+                <li>
+                    <label for="contentTitle">제목</label>
+                    <input type="text" id="contentTitle" value="안녕하세요 첫 게시글입니다.">
+                </li>
+                <li>
+                    <label for="contentAuthor">작성자</label>
+                    <input type="text" id="contentAuthor" value="표호근">
+                </li>
+            </ul>
+            <textarea name="" id="" cols="30" rows="10">안녕하세요 첫 게시글입니다.이글은 테스트용입니다.</textarea>
+        </div>
+    </div>
+    <div class="bottom-btn-group">
+        <a href="/list" class="btn primary">목록으로</a>
+        <a href="" class="btn primary">저장</a>
+    </div>
+</body>
+</html>

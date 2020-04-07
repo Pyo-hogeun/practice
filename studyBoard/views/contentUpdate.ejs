@@ -7,19 +7,45 @@
             <ul class="content-info">
                 <li>
                     <label for="contentTitle">제목</label>
-                    <input type="text" id="contentTitle" value="안녕하세요 첫 게시글입니다.">
+                    <input type="text" id="contentTitle" value="<%= content[0].contenttitle %>" readonly>
                 </li>
                 <li>
                     <label for="contentAuthor">작성자</label>
-                    <input type="text" id="contentAuthor" value="표호근">
+                    <input type="text" id="contentAuthor" value="<%= content[0].contentauthor %>" readonly>
                 </li>
             </ul>
-            <textarea name="" id="" cols="30" rows="10">안녕하세요 첫 게시글입니다.이글은 테스트용입니다.</textarea>
+            <textarea name="" id="contenttext_editable" cols="30" rows="10"><%= content[0].contenttext %></textarea>
         </div>
     </div>
     <div class="bottom-btn-group">
         <a href="/list" class="btn primary">목록으로</a>
-        <a href="" class="btn primary">저장</a>
+        <a href="javascript:void(0)" onclick="update(this);" class="btn primary">저장</a>
     </div>
+
+    <script>
+        function update(e){
+            let updateContent = {
+                contentText: document.querySelector('#contenttext_editable').value
+            }
+
+            // console.log(updateContent);
+            $.ajax({
+                url:"/update/"+"<%= content[0].contentid %>",
+                async: true,
+                type: "POST",
+                dataType: 'text',
+                data: updateContent,
+            }).done(function(status){
+                // console.log('create 성공~!');
+                // console.log(data);
+                console.log(JSON.parse(status))
+                const data = JSON.parse(status);
+                if (data.status === 200){
+                    alert('저장완료되었습니다.');
+                    window.location.replace(data.redirect);
+                }
+            })
+        }
+    </script>
 </body>
 </html>

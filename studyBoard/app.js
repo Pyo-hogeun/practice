@@ -56,11 +56,17 @@ app.get('/contentView/:content_id', (req, res)=>{
         })
 });
 app.get('/contentWrite', (req, res)=>{
-    
     res.render('contentWrite', {});
 });
-app.get('/contentUpdate', (req, res)=>{
-    res.render('contentUpdate', {});
+app.get('/contentUpdate/:content_id', (req, res)=>{
+    Board.find({contentid: req.params.content_id})
+        .then((content)=>{
+            console.log(content);
+            res.render('contentUpdate', {
+                content: content,
+                moment: moment
+            });
+        })
 });
 app.post('/create', (req, res)=>{
     let tempid = 0;
@@ -88,6 +94,20 @@ app.post('/create', (req, res)=>{
         .catch((err)=>{console.log(err)});
 });
 
+app.post('/update/:content_id', (req, res)=>{
+    Board.find({contentid: req.params.content_id})
+    .then((board)=>{
+        board.contenttext = req.body.contentText;
+        board.save(function(err){
+            if(err) return res.json({result: 0});
+            const status = {
+                "status" : 200,
+                "redirect" : "/contentView/"+req.params.content_id
+            }
+            res.end(JSON.stringify(status));
+        });
+    })
+})
 app.listen(port, ()=>{
     console.log('서버가동중..')
 });

@@ -18,7 +18,8 @@
     .content-text{
         padding: 20px;
         min-height: 300px;
-        pre{
+        .text-viewer{
+            white-space: pre-line;
             color: $font-color;
         }
     }

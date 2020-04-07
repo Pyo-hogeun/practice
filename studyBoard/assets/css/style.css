@@ -99,6 +99,10 @@ h1 {
   flex: 1 1 auto;
   text-align: left;
 }
+.board-list ul li.no-result {
+  text-align: center;
+  padding: 20px;
+}
 
 .content .content-header {
   background-color: #8245BF;
@@ -118,7 +122,8 @@ h1 {
   padding: 20px;
   min-height: 300px;
 }
-.content .content-text pre {
+.content .content-text .text-viewer {
+  white-space: pre-line;
   color: #333333;
 }
 .content .content-edit {

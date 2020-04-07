@@ -2,6 +2,9 @@
 <%- include ('./head') %>
 <body>
     <h1>글 보기</h1>
+    <div class="board-topper">
+        <a href="/contentWrite" class="btn primary"><i class="fas fa-pen"></i></a>
+    </div>
     <div class="content">
         <div class="content-header">
 
@@ -16,9 +19,9 @@
             </dl>
         </div>
         <div class="content-text">
-<pre>
-<%= content[0].contenttext %>
-</pre>
+            <div class="text-viewer">
+            <%= content[0].contenttext %>
+            </div>
         </div>
     </div>
     <div class="bottom-btn-group">

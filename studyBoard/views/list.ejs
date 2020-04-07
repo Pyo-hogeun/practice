@@ -13,25 +13,20 @@
                 <span>작성자</span>
                 <span>작성일</span>
             </li>
-            <!-- <li>
-                <a href="/contentView">
-                    <span>1</span>
-                    <span>안녕하세요 첫 게시글입니다.</span>
-                    <span>표호근</span>
-                    <span>2020-04-05</span>
-                </a>
-            </li> -->
-            <% for(let i = 0; i < content.length; i++ ){ %>
-                <li>
-                    <a href="/contentView/<%= content[i].contentid %>">
-                        <span><%= content[i].contentid%></span>
-                        <span><%= content[i].contenttitle%></span>
-                        <span><%= content[i].contentauthor%></span>
-                        <span><%= moment(content[i].createdAt).locale('ko').format('YYYY-MM-DD HH:mm:ss')%></span>
-                    </a>
-                </li>
+            <% if( content.length !== 0 ){ %>
+                <% for(let i = 0; i < content.length; i++ ){ %>
+                    <li>
+                        <a href="/contentView/<%= content[i].contentid %>">
+                            <span><%= content[i].contentid%></span>
+                            <span><%= content[i].contenttitle%></span>
+                            <span><%= content[i].contentauthor%></span>
+                            <span><%= moment(content[i].createdAt).locale('ko').format('YYYY-MM-DD HH:mm:ss')%></span>
+                        </a>
+                    </li>
+                <% } %>
+            <% } else { %>
+                <li class="no-result">게시글이 없습니다.</li>
             <% } %>
-            <% console.log(content[0].createdAt) %>
         </ul>
     </div>
 </body>

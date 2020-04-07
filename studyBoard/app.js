@@ -72,7 +72,11 @@ app.post('/create', (req, res)=>{
     let tempid = 0;
     Board.find().sort({'contentid':-1}).limit(1)
         .then(function(result){
-            tempid = result[0].contentid+1
+            if( result.length === 0 ){
+                tempid = 1;
+            } else {
+                tempid = result[0].contentid+1;
+            }
         })
         .then(()=>{
             let board = new Board({
@@ -95,17 +99,13 @@ app.post('/create', (req, res)=>{
 });
 
 app.post('/update/:content_id', (req, res)=>{
-    Board.find({contentid: req.params.content_id})
-    .then((board)=>{
-        board.contenttext = req.body.contentText;
-        board.save(function(err){
-            if(err) return res.json({result: 0});
-            const status = {
-                "status" : 200,
-                "redirect" : "/contentView/"+req.params.content_id
-            }
-            res.end(JSON.stringify(status));
-        });
+    Board.update({contentid: req.params.content_id}, { $set: {contenttext : req.body.contentText}})
+    .then(()=>{
+        const status = {
+            "status" : 200,
+            "redirect" : "/contentView/"+req.params.content_id
+        }
+        res.end(JSON.stringify(status));
     })
 })
 app.listen(port, ()=>{

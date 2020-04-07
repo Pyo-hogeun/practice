@@ -21,14 +21,20 @@ mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true, useUnifiedTopolo
 
 //board
 app.get('/', (req, res)=>{
-    res.render('list',{});
+    Board.find(function(err, boards){
+        if(err) return res.json({result: 0});
+        res.render('list', {
+            content: boards,
+            moment: moment
+        });
+    })
 });
 app.get('/list', (req, res)=>{
     Board.find(function(err, boards){
         if(err) return res.json({result: 0});
-        console.log(boards[0]);
         res.render('list', {
-            content: boards
+            content: boards,
+            moment: moment
         });
     })
 });
@@ -36,28 +42,36 @@ app.get('/contentView', (req, res)=>{
     res.render('contentView', {});
 });
 app.get('/contentWrite', (req, res)=>{
+    
     res.render('contentWrite', {});
 });
 app.get('/contentUpdate', (req, res)=>{
     res.render('contentUpdate', {});
 });
 app.post('/create', (req, res)=>{
-    // console.log(req.body.author);
-    let board = new Board({
-        contenttitle: req.body.title,
-        contenttext: req.body.contentText,
-        contentauthor: req.body.author,
-        contentdate: req.body.createdAt
-    });
-    // console.log(board);
-    board.save(function(err){
-        if(err) return res.json({result: 0});
-        const status = {
-            "status" : 200,
-            "redirect" : "/contentView"
-        }
-        res.end(JSON.stringify(status));
-    })
+    let tempid = 0;
+    Board.find().sort({'contentid':-1}).limit(1)
+        .then(function(result){
+            tempid = result[0].contentid+1
+        })
+        .then(()=>{
+            let board = new Board({
+                contentid: tempid,
+                contenttitle: req.body.title,
+                contenttext: req.body.contentText,
+                contentauthor: req.body.author,
+                contentdate: req.body.createdAt
+            });
+            board.save(function(err){
+                if(err) return res.json({result: 0});
+                const status = {
+                    "status" : 200,
+                    "redirect" : "/contentView"
+                }
+                res.end(JSON.stringify(status));
+            })
+        })
+        .catch((err)=>{console.log(err)});
 });
 
 app.listen(port, ()=>{

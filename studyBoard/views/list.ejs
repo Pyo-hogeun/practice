@@ -27,10 +27,11 @@
                         <span><%= content[i]._id%></span>
                         <span><%= content[i].contenttitle%></span>
                         <span><%= content[i].contentauthor%></span>
-                        <span><%= content[i].contentdate%></span>
+                        <span><%= moment(content[i].createdAt).locale('ko').format('YYYY-MM-DD HH:mm:ss')%></span>
                     </a>
                 </li>
             <% } %>
+            <% console.log(content[0].createdAt) %>
         </ul>
     </div>
 </body>

@@ -96,6 +96,7 @@ h1 {
 }
 .board-list ul li a > span:nth-of-type(2) {
   flex: 1 1 auto;
+  text-align: left;
 }
 
 .content .content-header {

@@ -21,6 +21,7 @@
     "moment": "^2.24.0",
     "mongodb": "^3.5.5",
     "mongoose": "^5.9.7",
+    "url": "^0.11.0",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11"
   }

@@ -24,7 +24,7 @@
             <% for(let i = 0; i < content.length; i++ ){ %>
                 <li>
                     <a href="/contentView/<%= content[i].contentid %>">
-                        <span><%= content[i]._id%></span>
+                        <span><%= content[i].contentid%></span>
                         <span><%= content[i].contenttitle%></span>
                         <span><%= content[i].contentauthor%></span>
                         <span><%= moment(content[i].createdAt).locale('ko').format('YYYY-MM-DD HH:mm:ss')%></span>

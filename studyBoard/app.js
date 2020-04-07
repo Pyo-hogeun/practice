@@ -80,7 +80,7 @@ app.post('/create', (req, res)=>{
                 if(err) return res.json({result: 0});
                 const status = {
                     "status" : 200,
-                    "redirect" : "/contentView"
+                    "redirect" : "/contentView/"+tempid
                 }
                 res.end(JSON.stringify(status));
             })

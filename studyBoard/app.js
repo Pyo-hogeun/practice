@@ -22,13 +22,16 @@ mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true, useUnifiedTopolo
 
 //board
 app.get('/', (req, res)=>{
-    Board.find(function(err, boards){
-        if(err) return res.json({result: 0});
-        res.render('list', {
-            content: boards,
-            moment: moment
+    Board.find()
+        .then((boards) => {
+                res.render('list', {
+                content: boards,
+                moment: moment
+            })
+        })
+        .catch((err)=>{
+            console.log(err);
         });
-    })
 });
 app.get('/list', (req, res)=>{
     Board.find()
@@ -42,9 +45,15 @@ app.get('/list', (req, res)=>{
             console.log(err);
         });
 });
-app.get('/contentView/:id', (req, res)=>{
-    console.log(req.params.id);
-    res.render('contentView', {});
+app.get('/contentView/:content_id', (req, res)=>{
+    Board.find({contentid: req.params.content_id})
+        .then((content)=>{
+            console.log(content);
+            res.render('contentView', {
+                content: content,
+                moment: moment
+            });
+        })
 });
 app.get('/contentWrite', (req, res)=>{
     

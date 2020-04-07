@@ -6,8 +6,12 @@
         h2{
         }
         dl{
+            font-size: 0.75em;
             dt{
-                font-size: 0;
+                font-weight: 600;
+            }
+            dd{
+                margin: 10px 0;
             }
         }
     }

@@ -104,8 +104,14 @@ h1 {
   padding: 20px;
   color: #05F29B;
 }
+.content .content-header dl {
+  font-size: 0.75em;
+}
 .content .content-header dl dt {
-  font-size: 0;
+  font-weight: 600;
+}
+.content .content-header dl dd {
+  margin: 10px 0;
 }
 .content .content-text {
   padding: 20px;

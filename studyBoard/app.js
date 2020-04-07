@@ -9,7 +9,8 @@ const moment = require('moment');
 const port = process.env.port || 8080;
 const app = express();
 app.set('view engine', 'ejs');
-app.use(express.static(__dirname + '/'));
+app.use('/assets', express.static(__dirname + '/assets'));
+app.use('/node_modules', express.static(__dirname + '/node_modules'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
@@ -30,15 +31,19 @@ app.get('/', (req, res)=>{
     })
 });
 app.get('/list', (req, res)=>{
-    Board.find(function(err, boards){
-        if(err) return res.json({result: 0});
-        res.render('list', {
-            content: boards,
-            moment: moment
+    Board.find()
+        .then((boards) => {
+                res.render('list', {
+                content: boards,
+                moment: moment
+            })
+        })
+        .catch((err)=>{
+            console.log(err);
         });
-    })
 });
-app.get('/contentView', (req, res)=>{
+app.get('/contentView/:id', (req, res)=>{
+    console.log(req.params.id);
     res.render('contentView', {});
 });
 app.get('/contentWrite', (req, res)=>{

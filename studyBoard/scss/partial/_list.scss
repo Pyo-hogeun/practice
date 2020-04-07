@@ -12,7 +12,7 @@
         color: $third-color;
         font-family: 'Do Hyeon', sans-serif;
         >span{
-            flex: 0 0 15%;
+            flex: 0 0 20%;
             font-size: 1.1em;
             font-weight: 600;
             padding: 5px;
@@ -27,9 +27,8 @@
             a{
                 display: flex;
                 padding-top: 5px;
-                
                 >span{
-                    flex: 0 0 15%;
+                    flex: 0 0 20%;
                     padding: 5px;
                     text-align: center;
                     &:nth-of-type(2){

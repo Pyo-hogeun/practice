@@ -24,7 +24,7 @@ body, pre, textarea {
   font-family: "Nanum Gothic", sans-serif;
 }
 
-h1, h2, h3, h4, h5, a, label {
+h1, h2, h3, h4, h5, label {
   font-family: "Do Hyeon", sans-serif;
 }
 
@@ -34,6 +34,7 @@ a:hover {
 
 .btn {
   display: inline-block;
+  font-family: "Do Hyeon", sans-serif;
   padding: 10px;
 }
 .btn.primary {
@@ -76,7 +77,7 @@ h1 {
   font-family: "Do Hyeon", sans-serif;
 }
 .board-list .board-header > span {
-  flex: 0 0 15%;
+  flex: 0 0 20%;
   font-size: 1.1em;
   font-weight: 600;
   padding: 5px;
@@ -90,7 +91,7 @@ h1 {
   padding-top: 5px;
 }
 .board-list ul li a > span {
-  flex: 0 0 15%;
+  flex: 0 0 20%;
   padding: 5px;
   text-align: center;
 }

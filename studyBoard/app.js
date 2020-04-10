@@ -23,6 +23,7 @@ mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true, useUnifiedTopolo
 //board
 app.get('/', (req, res)=>{
     Board.find()
+        .sort({ createdAt: -1 })
         .then((boards) => {
                 res.render('list', {
                 content: boards,
@@ -35,6 +36,7 @@ app.get('/', (req, res)=>{
 });
 app.get('/list', (req, res)=>{
     Board.find()
+        .sort({ createdAt: -1 })
         .then((boards) => {
                 res.render('list', {
                 content: boards,

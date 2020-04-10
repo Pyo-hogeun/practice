@@ -2,6 +2,10 @@
 <%- include ('./head') %>
 <body>
     <h1>글 수정</h1>
+    <div class="btn-group">
+        <a href="/list" class="btn primary">목록으로</a>
+        <a href="javascript:void(0)" onclick="update(this);" class="btn primary">저장</a>
+    </div>
     <div class="content">
         <div class="content-edit">
             <ul class="content-info">
@@ -17,18 +21,13 @@
             <textarea name="" id="contenttext_editable" cols="30" rows="10"><%= content[0].contenttext %></textarea>
         </div>
     </div>
-    <div class="bottom-btn-group">
-        <a href="/list" class="btn primary">목록으로</a>
-        <a href="javascript:void(0)" onclick="update(this);" class="btn primary">저장</a>
-    </div>
+    
 
     <script>
         function update(e){
             let updateContent = {
                 contentText: document.querySelector('#contenttext_editable').value
             }
-
-            // console.log(updateContent);
             $.ajax({
                 url:"/update/"+"<%= content[0].contentid %>",
                 async: true,

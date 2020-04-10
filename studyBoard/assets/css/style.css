@@ -45,6 +45,11 @@ a:hover {
   color: #05F29B;
 }
 
+.btn-group {
+  margin: 10px 0;
+  text-align: right;
+}
+
 textarea, input[type=text] {
   border: 1px solid #6F04D9;
   border-width: 1px 0;

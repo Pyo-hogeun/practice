@@ -2,8 +2,13 @@
 <%- include ('./head') %>
 <body>
     <h1>글 보기</h1>
-    <div class="board-topper">
+    <!-- <div class="board-topper">
         <a href="/contentWrite" class="btn primary"><i class="fas fa-pen"></i></a>
+    </div> -->
+    <div class="btn-group">
+        <a href="/list" class="btn primary">목록으로</a>
+        <a href="/contentUpdate/<%= content[0].contentid %>" class="btn primary">수정하기</a>
+        <a href="javascript:void(0)" onclick="contentDelete(this)" class="btn primary">삭제하기</a>
     </div>
     <div class="content">
         <div class="content-header">
@@ -24,10 +29,24 @@
             </div>
         </div>
     </div>
-    <div class="bottom-btn-group">
-        <a href="/list" class="btn primary">목록으로</a>
-        <a href="/contentUpdate/<%= content[0].contentid %>" class="btn primary">수정하기</a>
-        <a href="" class="btn primary">삭제하기</a>
-    </div>
+    <script>
+        function contentDelete(e){
+            let confirmResult = false;
+            confirmResult = confirm('삭제하시겠습니까?');
+            if( confirmResult === true ){
+                $.ajax({
+                    url: "/contentdelete/"+"<%= content[0].contentid %>",
+                    async: true,
+                    type: "POST"
+                }).done(function(status){
+                    const data = JSON.parse(status)
+                    if( data.status === 200 ){
+                        alert('삭제되었습니다.');
+                        window.location.replace(data.redirect);
+                    }
+                })
+            }
+        }
+    </script>
 </body>
 </html>

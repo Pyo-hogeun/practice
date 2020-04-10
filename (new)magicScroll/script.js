@@ -1,21 +1,26 @@
-var bg_tween = TweenMax.to('#cut02', 1, {
-  backgroundColor: '#FFA500',
-  // ease: Linear.easeNone
-});
-
+// init ScrollMagic Controller
 var controller = new ScrollMagic.Controller();
 
+var ani = TweenMax.to('')
+// Scene Handler
 var scene = new ScrollMagic.Scene({
-	triggerElement: '#cut01',
-	duration: 1000,
-	offset: 100
+  triggerElement: "#pinned-trigger1", // point of execution
+  duration: $(window).height() - 100, // pin element for the window height - 1
+  triggerHook: 0, // don't trigger until #pinned-trigger1 hits the top of the viewport
+  reverse: true // allows the effect to trigger when scrolled in the reverse direction
 })
-.setPin('#cut01')
-.setClassToggle('.phrase','red');
+.setPin("#pinned-element1"); // the element we want to pin
 
-var bg_transparent_scene = new ScrollMagic.Scene({
-	triggerElement: '#cut02'
-})
-.setTween(bg_tween);
+// // Scene2 Handler
+// var scene2 = new ScrollMagic.Scene({
+//   triggerElement: "#pinned-trigger2", // point of execution
+//   // duration: 400 // pin the element for a total of 400px
+// })
+// .setPin("#pinned-element2"); // the element we want to pin
 
-controller.addScene([scene, bg_transparent_scene]);
+// Add Scenes to ScrollMagic Controller
+// controller.addScene([
+//   scene,
+//   scene2
+// ]);
+controller.addScene(scene);

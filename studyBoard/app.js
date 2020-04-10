@@ -107,7 +107,18 @@ app.post('/update/:content_id', (req, res)=>{
         }
         res.end(JSON.stringify(status));
     })
-})
+});
+
+app.post('/contentdelete/:content_id', (req, res)=>{
+    Board.remove({ _id : req.params.content_id})
+    .then(()=>{
+        const status = {
+            "status" : 200,
+            "redirect" : "/list"
+        }
+        res.end(JSON.stringify(status));
+    })
+});
 app.listen(port, ()=>{
     console.log('서버가동중..')
 });

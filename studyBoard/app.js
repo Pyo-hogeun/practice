@@ -41,6 +41,25 @@ app.get('/list', (req, res)=>{
             console.log(err);
         });
 });
+
+app.get('/contentMore', (req, res)=>{
+    console.log(req.query.page);
+    console.log(req.query.skip);
+    Board.find()
+        .sort({ createdAt: -1 })
+        .limit(3)
+        .then((boards) => {
+            console.log('성공');
+            res.render('list', {
+                content: boards,
+                moment: moment
+            })
+        })
+        .catch((err)=>{
+            console.log(err);
+        });
+});
+
 app.get('/contentView/:content_id', (req, res)=>{
     Board.find({contentid: req.params.content_id})
         .then((content)=>{

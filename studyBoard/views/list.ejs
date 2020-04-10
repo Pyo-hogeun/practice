@@ -53,12 +53,23 @@
         // }
         // boarderWrapper.insertAdjacentHTML('beforeend', template);
 
+        let page = 1;
+        let skip = 0;
         function contentMore(e){
             console.log('더보기 click');
-            // $.ajax({
-            //     url: '/more',
-            //     type: 'GET'
-            // })
+            page += 1;
+            skip += 3
+            $.ajax({
+                url: '/contentMore?page='+page+'&skip='+skip,
+                type: 'GET',
+            }).done(function(status){
+                console.log(JSON.parse(status))
+                const data = JSON.parse(status);
+                if (data.status === 200){
+                    alert('저장완료되었습니다.');
+                    window.location.replace(data.redirect);
+                }
+            })
         }
     </script>
 </body>

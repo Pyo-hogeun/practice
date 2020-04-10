@@ -110,14 +110,18 @@ app.post('/update/:content_id', (req, res)=>{
 });
 
 app.post('/contentdelete/:content_id', (req, res)=>{
-    Board.remove({ _id : req.params.content_id})
-    .then(()=>{
+    Board.deleteOne({ contentid : req.params.content_id})
+    .then( result => {
+        // if(!output.result.n) return res.status(404).json({ error: "book not found" });
+        // console.log(`Deleted ${result.deletedCount} item.`);
+        console.log(result);
         const status = {
             "status" : 200,
             "redirect" : "/list"
         }
         res.end(JSON.stringify(status));
     })
+    .catch( err => console.error(`Delete failed with error: ${err}`))
 });
 app.listen(port, ()=>{
     console.log('서버가동중..')

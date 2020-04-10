@@ -9,9 +9,26 @@
             color: $third-color;
         }
     }
+
+    &.outline{
+        color: lighten($font-color, 30%);
+        border: 1px solid lighten($font-color, 30%);
+        &.primary{
+            background-color: #ffffff;
+            color: $primary-color;
+            border: 1px solid $primary-color;
+        }
+    }
+
+    &.more-btn{
+        padding: 3px 15px;
+    }
 }
 
 .btn-group{
     margin: 10px 0;
     text-align: right;
+    &.al-center{
+        text-align: center;
+    }
 }

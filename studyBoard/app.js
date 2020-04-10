@@ -20,25 +20,19 @@ mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true, useUnifiedTopolo
   .then(() => console.log('Successfully connected to mongodb'))
   .catch(e => console.error(e));
 
+  
 //board
 app.get('/', (req, res)=>{
-    Board.find()
-        .sort({ createdAt: -1 })
-        .then((boards) => {
-                res.render('list', {
-                content: boards,
-                moment: moment
-            })
-        })
-        .catch((err)=>{
-            console.log(err);
-        });
+    res.redirect('/list?page=1');
 });
 app.get('/list', (req, res)=>{
+    console.log(req.query.page);
     Board.find()
         .sort({ createdAt: -1 })
+        .limit(3)
         .then((boards) => {
-                res.render('list', {
+            console.log('성공');
+            res.render('list', {
                 content: boards,
                 moment: moment
             })

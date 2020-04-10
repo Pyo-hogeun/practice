@@ -44,10 +44,25 @@ a:hover {
 .btn.primary:hover {
   color: #05F29B;
 }
+.btn.outline {
+  color: gray;
+  border: 1px solid gray;
+}
+.btn.outline.primary {
+  background-color: #ffffff;
+  color: #6F04D9;
+  border: 1px solid #6F04D9;
+}
+.btn.more-btn {
+  padding: 3px 15px;
+}
 
 .btn-group {
   margin: 10px 0;
   text-align: right;
+}
+.btn-group.al-center {
+  text-align: center;
 }
 
 textarea, input[type=text] {
@@ -88,6 +103,9 @@ h1 {
   padding: 5px;
   text-align: center;
 }
+.board-list .board-header > span:nth-of-type(1) {
+  flex: 0 0 10%;
+}
 .board-list .board-header > span:nth-of-type(2) {
   flex: 1 1 auto;
 }
@@ -99,6 +117,9 @@ h1 {
   flex: 0 0 20%;
   padding: 5px;
   text-align: center;
+}
+.board-list ul li a > span:nth-of-type(1) {
+  flex: 0 0 10%;
 }
 .board-list ul li a > span:nth-of-type(2) {
   flex: 1 1 auto;

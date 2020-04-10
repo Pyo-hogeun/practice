@@ -29,5 +29,37 @@
             <% } %>
         </ul>
     </div>
+    <div class="btn-group al-center">
+        <a href="javascript:void(0)" onclick="contentMore(this)" class="btn outline primary more-btn">더보기</a>
+    </div>
+    <script>
+        // let template = '';
+        // const boarderWrapper = document.querySelector('.board-list > ul');
+        // if( content.length !== 0 ){
+        //     for(let i = 0; i < content.length; i++){
+        //         template += `
+        //             <li>
+        //                 <a href="/contentView/${content[i].contentid}">
+        //                     <span>${content[i].contentid}</span>
+        //                     <span>${content[i].contenttitle}</span>
+        //                     <span>${content[i].contentauthor}</span>
+        //                     <span>${moment(content[i].createdAt).locale('ko').format('YYYY-MM-DD HH:mm:ss')}</span>
+        //                 </a>
+        //             </li>
+        //         `
+        //     }
+        // } else {
+        //     template = `<li class="no-result">게시글이 없습니다.</li>`
+        // }
+        // boarderWrapper.insertAdjacentHTML('beforeend', template);
+
+        function contentMore(e){
+            console.log('더보기 click');
+            // $.ajax({
+            //     url: '/more',
+            //     type: 'GET'
+            // })
+        }
+    </script>
 </body>
 </html>

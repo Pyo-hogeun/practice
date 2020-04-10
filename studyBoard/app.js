@@ -109,7 +109,7 @@ app.post('/update/:content_id', (req, res)=>{
     })
 });
 
-app.post('/contentdelete/:content_id', (req, res)=>{
+app.post('/contentDelete/:content_id', (req, res)=>{
     Board.deleteOne({ contentid : req.params.content_id})
     .then( result => {
         // if(!output.result.n) return res.status(404).json({ error: "book not found" });

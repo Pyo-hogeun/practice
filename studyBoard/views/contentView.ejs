@@ -4,26 +4,44 @@
     <h1>글 보기</h1>
     <div class="btn-group">
         <a href="/list" class="btn primary">목록으로</a>
-        <a href="/contentUpdate/<%= content[0].contentid %>" class="btn primary">수정하기</a>
+        <a href="/contentUpdate/<%= content[1].contentid %>" class="btn primary">수정하기</a>
         <a href="javascript:void(0)" onclick="contentDelete(this)" class="btn primary">삭제하기</a>
     </div>
     <div class="content">
         <div class="content-header">
 
-            <h2><%= content[0].contenttitle %></h2>
+            <h2><%= content[1].contenttitle %></h2>
             <dl>
                 <dt>글번호</dt>
-                <dd><%= content[0].contentid %></dd>
+                <dd><%= content[1].contentid %></dd>
                 <dt>작성자</dt>
-                <dd><%= content[0].contentauthor %></dd>
+                <dd><%= content[1].contentauthor %></dd>
                 <dt>작성일</dt>
-                <dd><%= moment(content[0].createdAt).locale('ko').format('YYYY-MM-DD HH:mm:ss')%></dd>
+                <dd><%= moment(content[1].createdAt).locale('ko').format('YYYY-MM-DD HH:mm:ss')%></dd>
             </dl>
         </div>
         <div class="content-text">
             <div class="text-viewer">
-            <%= content[0].contenttext %>
+            <%= content[1].contenttext %>
             </div>
+        </div>
+        <div class="content-another">
+            <ul>
+                <li>
+                    <a href="/contentView/<%=content[0].contentid%>">
+                        <span class="label">이전글</span>
+                        <span class="content-id">글번호 <%= content[0].contentid %></span>
+                        <span class="content-title"><%= content[0].contenttitle %></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/contentView/<%=content[2].contentid%>">
+                        <span class="label">다음글</span>
+                        <span class="content-id">글번호 <%= content[2].contentid %></span>
+                        <span class="content-title"><%= content[2].contenttitle %></span>
+                    </a>
+                </li>
+            </ul>
         </div>
     </div>
     <script>
@@ -32,7 +50,7 @@
             confirmResult = confirm('삭제하시겠습니까?');
             if( confirmResult ){
                 $.ajax({
-                    url: "/contentDelete/"+"<%= content[0].contentid %>",
+                    url: "/contentDelete/"+"<%= content[1].contentid %>",
                     async: true,
                     type: "POST"
                 }).done(function(status){

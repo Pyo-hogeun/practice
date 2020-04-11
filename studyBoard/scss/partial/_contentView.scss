@@ -23,6 +23,31 @@
             color: $font-color;
         }
     }
+    .content-another{
+        >ul{
+            >li{
+                a{
+                    display: flex;
+                    width: 100%;
+                    padding: 10px;
+                    // color: $font-color;
+                    .label{
+                        flex: 0 0 15%;
+                        font-weight: 600;
+                    }
+                    .content-id{
+                        flex: 0 0 15%;
+                    }
+                    .content-title{
+                        flex: 1 1 auto;
+                    }
+                }
+                &:first-child{
+                    border-bottom: 1px solid $border-color;
+                }
+            }
+        }
+    }
     .content-edit{
         margin: 10px 0;
         .content-info{

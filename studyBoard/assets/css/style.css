@@ -152,6 +152,24 @@ h1 {
   white-space: pre-line;
   color: #333333;
 }
+.content .content-another > ul > li a {
+  display: flex;
+  width: 100%;
+  padding: 10px;
+}
+.content .content-another > ul > li a .label {
+  flex: 0 0 15%;
+  font-weight: 600;
+}
+.content .content-another > ul > li a .content-id {
+  flex: 0 0 15%;
+}
+.content .content-another > ul > li a .content-title {
+  flex: 1 1 auto;
+}
+.content .content-another > ul > li:first-child {
+  border-bottom: 1px solid #6F04D9;
+}
 .content .content-edit {
   margin: 10px 0;
 }

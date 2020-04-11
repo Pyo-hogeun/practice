@@ -59,7 +59,9 @@ app.get('/contentMore', (req, res)=>{
 });
 
 app.get('/contentView/:content_id', (req, res)=>{
-    Board.find({contentid: req.params.content_id})
+    Board.find({contentid: {
+        '$gte': req.params.content_id-1, '$lte': req.params.content_id+1
+    }})
         .then((content)=>{
             console.log(content);
             res.render('contentView', {

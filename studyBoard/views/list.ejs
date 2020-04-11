@@ -33,25 +33,13 @@
         <a href="javascript:void(0)" onclick="contentMore(this)" class="btn outline primary more-btn">더보기</a>
     </div>
     <script>
-        // let template = '';
-        // const boarderWrapper = document.querySelector('.board-list > ul');
+        
         // if( content.length !== 0 ){
-        //     for(let i = 0; i < content.length; i++){
-        //         template += `
-        //             <li>
-        //                 <a href="/contentView/${content[i].contentid}">
-        //                     <span>${content[i].contentid}</span>
-        //                     <span>${content[i].contenttitle}</span>
-        //                     <span>${content[i].contentauthor}</span>
-        //                     <span>${moment(content[i].createdAt).locale('ko').format('YYYY-MM-DD HH:mm:ss')}</span>
-        //                 </a>
-        //             </li>
-        //         `
-        //     }
+            
         // } else {
         //     template = `<li class="no-result">게시글이 없습니다.</li>`
         // }
-        // boarderWrapper.insertAdjacentHTML('beforeend', template);
+        
 
         let page = 1;
         let skip = 0;
@@ -60,15 +48,33 @@
             page += 1;
             skip += 3
             $.ajax({
-                url: '/contentMore?page='+page+'&skip='+skip,
+                url: '/contentMore?skip='+skip,
                 type: 'GET',
-            }).done(function(status){
-                console.log(JSON.parse(status))
-                const data = JSON.parse(status);
-                if (data.status === 200){
-                    alert('저장완료되었습니다.');
-                    window.location.replace(data.redirect);
+            }).done(function(addData){
+                let template = '';
+
+                let data = JSON.parse(addData);
+                let content = data.content;
+                const boarderWrapper = document.querySelector('.board-list > ul');
+                console.log(content);
+                for(let i = 0; i < content.length; i++){
+                    template += `
+                        <li>
+                            <a href="/contentView/${content[i].contentid}">
+                                <span>${content[i].contentid}</span>
+                                <span>${content[i].contenttitle}</span>
+                                <span>${content[i].contentauthor}</span>
+                                <span>${moment(content[i].createdAt).locale('ko').format('YYYY-MM-DD HH:mm:ss')}</span>
+                            </a>
+                        </li>
+                    `
                 }
+                boarderWrapper.insertAdjacentHTML('beforeend', template);
+                // const data = JSON.parse(status);
+                // if (data.status === 200){
+                //     alert('저장완료되었습니다.');
+                //     window.location.replace(data.redirect);
+                // }
             })
         }
     </script>

@@ -23,15 +23,13 @@ mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true, useUnifiedTopolo
   
 //board
 app.get('/', (req, res)=>{
-    res.redirect('/list?page=1');
+    res.redirect('/list?skip=0');
 });
 app.get('/list', (req, res)=>{
-    console.log(req.query.page);
     Board.find()
         .sort({ createdAt: -1 })
         .limit(3)
         .then((boards) => {
-            console.log('성공');
             res.render('list', {
                 content: boards,
                 moment: moment
@@ -43,17 +41,17 @@ app.get('/list', (req, res)=>{
 });
 
 app.get('/contentMore', (req, res)=>{
-    console.log(req.query.page);
     console.log(req.query.skip);
     Board.find()
         .sort({ createdAt: -1 })
+        .skip(3)
         .limit(3)
         .then((boards) => {
-            console.log('성공');
-            res.render('list', {
-                content: boards,
-                moment: moment
-            })
+            console.log('더보기 조회성공');
+            // console.log(boards);
+            res.end(JSON.stringify({
+                content: boards
+            }))
         })
         .catch((err)=>{
             console.log(err);

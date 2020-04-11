@@ -41,10 +41,10 @@ app.get('/list', (req, res)=>{
 });
 
 app.get('/contentMore', (req, res)=>{
-    console.log(req.query.skip);
+    console.log( );
     Board.find()
         .sort({ createdAt: -1 })
-        .skip(3)
+        .skip(Number(req.query.skip))
         .limit(3)
         .then((boards) => {
             console.log('더보기 조회성공');

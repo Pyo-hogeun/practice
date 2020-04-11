@@ -33,13 +33,6 @@
         <a href="javascript:void(0)" onclick="contentMore(this)" class="btn outline primary more-btn">더보기</a>
     </div>
     <script>
-        
-        // if( content.length !== 0 ){
-            
-        // } else {
-        //     template = `<li class="no-result">게시글이 없습니다.</li>`
-        // }
-        
 
         let page = 1;
         let skip = 0;
@@ -56,25 +49,25 @@
                 let data = JSON.parse(addData);
                 let content = data.content;
                 const boarderWrapper = document.querySelector('.board-list > ul');
-                console.log(content);
-                for(let i = 0; i < content.length; i++){
-                    template += `
-                        <li>
-                            <a href="/contentView/${content[i].contentid}">
-                                <span>${content[i].contentid}</span>
-                                <span>${content[i].contenttitle}</span>
-                                <span>${content[i].contentauthor}</span>
-                                <span>${moment(content[i].createdAt).locale('ko').format('YYYY-MM-DD HH:mm:ss')}</span>
-                            </a>
-                        </li>
-                    `
+                console.log(content.length);
+                if(content.length > 1){
+
+                    for(let i = 0; i < content.length; i++){
+                        template += `
+                            <li>
+                                <a href="/contentView/${content[i].contentid}">
+                                    <span>${content[i].contentid}</span>
+                                    <span>${content[i].contenttitle}</span>
+                                    <span>${content[i].contentauthor}</span>
+                                    <span>${moment(content[i].createdAt).locale('ko').format('YYYY-MM-DD HH:mm:ss')}</span>
+                                </a>
+                            </li>
+                        `
+                    }
+                    boarderWrapper.insertAdjacentHTML('beforeend', template);
+                } else {
+                    alert('마지막 게시물입니다.');
                 }
-                boarderWrapper.insertAdjacentHTML('beforeend', template);
-                // const data = JSON.parse(status);
-                // if (data.status === 200){
-                //     alert('저장완료되었습니다.');
-                //     window.location.replace(data.redirect);
-                // }
             })
         }
     </script>

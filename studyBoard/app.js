@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const Board = require('./models/board');
 const mongoose = require('mongoose');
 const moment = require('moment');
+const script = require('script');
 const port = process.env.port || 8080;
 const app = express();
 app.set('view engine', 'ejs');

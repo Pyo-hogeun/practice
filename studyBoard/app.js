@@ -71,13 +71,11 @@ app.get('/contentView/:content_id', (req, res)=>{
             return Board.findOne({contentid: Number(req.params.content_id)-1})
         })
         .then((prevContent)=>{
-            // console.log(prevContent);
             contentSet.prevContent = prevContent;
             return Board.findOne({contentid: Number(req.params.content_id)})
         })
         .then((contentNow)=>{
             contentSet.content = contentNow;
-            // console.log(contentSet);
             res.render('contentView', contentSet);
         })
         .catch((err)=>{

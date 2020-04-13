@@ -32,6 +32,10 @@ a:hover {
   color: #F2CB05;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 .btn {
   display: inline-block;
   font-family: "Do Hyeon", sans-serif;

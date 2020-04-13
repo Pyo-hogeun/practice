@@ -60,23 +60,29 @@ app.get('/contentMore', (req, res)=>{
 
 app.get('/contentView/:content_id', (req, res)=>{
     let contentSet = {
-        prev: "",
+        prevContent: "",
+        nextContent: "",
         content: "",
-        next: "",
         moment: moment
     }
-    Board.find({contentid:{
-        '$gte': req.params.content_id-1
-    }})
-        .then((prev)=>{
-            contentSet.prev = prev;
-        });
-    
-    Board.find({contentid: req.params.content_id})
+    Board.findOne({contentid: Number(req.params.content_id)+1})
+        .then((nextContent)=>{
+            contentSet.nextContent = nextContent;
+            return Board.findOne({contentid: Number(req.params.content_id)-1})
+        })
+        .then((prevContent)=>{
+            // console.log(prevContent);
+            contentSet.prevContent = prevContent;
+            return Board.findOne({contentid: Number(req.params.content_id)})
+        })
         .then((contentNow)=>{
             contentSet.content = contentNow;
+            // console.log(contentSet);
             res.render('contentView', contentSet);
-        });
+        })
+        .catch((err)=>{
+            console.log(err);
+        }) 
 });
 app.get('/contentWrite', (req, res)=>{
     res.render('contentWrite', {});

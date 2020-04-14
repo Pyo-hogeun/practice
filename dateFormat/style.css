@@ -1,0 +1,4 @@
+li{list-style: none;}
+.img-list {width: 300px;}
+.img-list ul, .img-list li, .img-list img{ width: 100%; margin: 0}
+.img-list li{margin-bottom: 10px;}

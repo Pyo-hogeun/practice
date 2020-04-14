@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>date Format</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="./script.js"></script>
+</head>
+<body>
+  <h1>시간표시</h1>
+  <h2>type1 : 년도-월-일</h2>
+  <button onclick="type1()">type1</button>
+  <p class="type1"></p>
+
+  <input type="text" id="search">
+  <button id="searchBtn">검색</button>
+
+  <div class="img-list">
+    <ul></ul>
+  </div>
+
+  <script>
+    window.onload = function(){
+      
+      loadImg();
+      
+    }
+
+    var list = document.querySelector('.img-list');
+    console.log(list);
+
+    document.querySelector('button#searchBtn').addEventListener('click', function(e){
+            
+      // var keyword = document.querySelector('#search').value;
+      console.log(this);
+    });
+    
+    
+    function loadImg() {
+      template = '';
+      fetch("https://picsum.photos/v2/list?limit=5",{
+        method: "GET"
+      })
+        .then((res) => {
+          return res.json();
+          // console.log(res);
+        })
+        .then((data)=>{
+          data.map((item) => {
+            console.log(item);
+            template += `
+              <li data-author="${item.author}">
+                <img src="${item.download_url}"><br>
+                <span>${item.download_url}</span><br>
+                <span>${item.author}</span><br>
+                <button id="info">정보</button>
+              </li>
+            `
+          })
+        })
+        .then(()=>{
+          document.querySelector('.img-list ul').insertAdjacentHTML('beforeend', template);
+          
+        })
+    }
+
+    
+
+    
+  </script>
+</body>
+</html>

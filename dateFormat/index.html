@@ -15,7 +15,8 @@
 
   <input type="text" id="search">
   <button id="searchBtn">검색</button>
-
+  <ul class="recent-list">
+  </ul>
   <div class="img-list">
     <ul></ul>
   </div>
@@ -24,18 +25,27 @@
     window.onload = function(){
       
       loadImg();
-      
+      document.getElementById('search').focus();
     }
 
-    var list = document.querySelector('.img-list');
+    const list = document.querySelector('.img-list');
     console.log(list);
 
-    document.querySelector('button#searchBtn').addEventListener('click', function(e){
-            
-      // var keyword = document.querySelector('#search').value;
-      console.log(this);
+    function searchAtList (keyword){
+      let result = document.querySelectorAll('.img-list li[data-author="a*"]');
+      console.log(result)
+    }
+
+    document.querySelector('button#searchBtn').addEventListener('click',  function(e){
+        var keyword = document.querySelector('#search').value;
+        var recentList = document.querySelector('.recent-list');
+        let recentListTemplate = `
+          <li class="recent-keyword"><a href="">${keyword}</a></li>
+        `;
+
+        recentList.insertAdjacentHTML('beforeend', recentListTemplate);
     });
-    
+
     
     function loadImg() {
       template = '';
@@ -48,7 +58,7 @@
         })
         .then((data)=>{
           data.map((item) => {
-            console.log(item);
+            // console.log(item);
             template += `
               <li data-author="${item.author}">
                 <img src="${item.download_url}"><br>

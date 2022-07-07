@@ -19,7 +19,7 @@
     "ejs": "^3.0.2",
     "express": "^4.17.1",
     "express-cli": "0.0.1",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "mongodb": "^3.5.5",
     "mongoose": "^5.9.7",
     "webpack": "^4.42.1",
